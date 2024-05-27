@@ -1,0 +1,13 @@
+<odoo>
+    <menuitem id="menu_distribution_root" name="Sample Order Distribution" sequence="1"/>
+
+    <menuitem id="menu_distribution_sample_order" name="Sample Orders" parent="menu_distribution_root" sequence="1"/>
+
+    <record id="action_distribution_sample_order" model="ir.actions.act_window">
+        <field name="name">Sample Orders</field>
+        <field name="res_model">distribution.sample.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_action_distribution_sample_order" name="Sample Orders" parent="menu_distribution_sample_order" action="action_distribution_sample_order"/>
+</odoo>
