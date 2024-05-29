@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Stock Location View (if you need to add fields to the stock location view) -->
+    <record id="view_stock_location_form" model="ir.ui.view">
+        <field name="name">stock.location.form</field>
+        <field name="model">stock.location</field>
+        <field name="arch" type="xml">
+            <form string="Stock Location">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="usage"/>
+                        <field name="is_sample_location"/>
+                        <field name="user_id"/>
+                        <field name="company_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action to Create Sample Location -->
+    <record id="action_create_sample_location" model="ir.actions.server">
+        <field name="name">Create Sample Location</field>
+        <field name="model_id" ref="stock.model_stock_location"/>
+        <field name="binding_model_id" ref="stock.model_stock_location"/>
+        <field name="state">code</field>
+        <field name="code">action = model.create_sample_location()</field>
+    </record>
+
+    <!-- Menu Item for Creating Sample Location -->
+    <menuitem id="menu_sample_location_create" name="Create Sample Location" parent="menu_distribution_root" action="action_create_sample_location"/>
+</odoo>
